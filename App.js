@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View , TextInput } from 'react-native';
+import { StyleSheet, Text, View , TextInput ,Button } from 'react-native';
 
 export default function App() {
   const [value, onChangeText] = 	React.useState('');  
@@ -8,11 +8,10 @@ export default function App() {
     <View style={styles.container}>
       <Text style={{'marginBottom':20}}>Basic App</Text>
       <TextInput style={styles.inputStyle} placeholder="Type something"
-	    onChangeText={text => onChangeText(text)}
-      clearTextOnFocus="true"
-      value={value}/>
+	    onChangeText={text => onChangeText(text)} value={value}/>
       <Text>{value}</Text>
       <StatusBar style="auto"/>
+      <Button style={styles.buttonStyle} onPress={()=> onChangeText(null)} title="Clear"/>
     </View>
   );
 }
@@ -32,5 +31,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     marginBottom:10
+  },
+  buttonStyle : {
+    cursor : 'pointer',
+    color : "#841584"
   }
 });
